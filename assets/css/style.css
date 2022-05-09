@@ -1,19 +1,28 @@
 :root {
-    --dark: #13293d;
+    --dark: #303030;
     --light: #fff;
     --theme: #F24BED;
+    --selector-color:rgb(31, 194, 194); 
     --border: lightgrey; 
 }
 
 * {
-    /* border: dashed 1px var(--theme); */
     margin: 0px;
     padding: 0;
-    background-color: grey;
+    background-color: var(--dark);
+}
+
+::selection{
+    background-color: var(--selector-color);
+}
+
+body {
+    font-family: helvetica, Arial, Helvetica, sans-serif;
 }
 
 header {
     text-align: center;
+    padding: 10px;
 }
 
 header h1 {
@@ -22,25 +31,61 @@ header h1 {
 
 header p {
     color:white;
+    margin: 10px;
 }
 
-main {
+#cards-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.box {
-    /* content: attr(subtitle); */
+.cards {
     flex: 1 0 200px;
-    padding: 100px;
-    margin: 10px;
-    border: dashed 1px var(--border)
+    padding: 0 10px 10px 10px;
+    margin: 20px;
+    border: dashed 1px var(--border);
+    /* background-color: var(--theme); */
+    min-height: 300px;
+}
+
+.cards:hover{
+    box-shadow: 5px 5px 5px var(--theme);
+}
+
+.cards h2{
+    color: var(--theme);
+    position: relative;
+    top: -15px;
+    border: solid var(--light) 2px;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+.cards :hover > .cards h2 {
+    box-shadow: 0 0 20px var(--theme);
+}
+
+.snippet-description {
+    margin-top: -15px;
+    color: var(--theme);
+
+}
+
+.snippet{
+    color: var(--light);
+    background-color: #F24BED;
+}
+
+.snippet pre {
+    user-select: all;
 }
 
 footer{
     text-align: center;
-    color: var(--theme)
+    color: var(--theme);
+    border-radius: 4px;
+    padding: 5px;
 }
 
 @media screen and (min-width: 768px) {
